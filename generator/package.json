@@ -1,0 +1,8 @@
+{
+  "name":"CirriculumGenerator",
+  "version":"0.0.1",
+  "private":true,
+  "dependencies":{
+    "markdown": "~0.5.0"
+  }
+}
