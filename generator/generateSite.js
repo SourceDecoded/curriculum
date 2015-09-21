@@ -58,6 +58,7 @@ var scanDir = function(directory){
 };
 
 rimraf(outputDirectory, function(){
-  fs.mkdirSync(outputDirectory);
-  scanDir("");
+  fs.mkdir(outputDirectory, function(){
+    scanDir("");
+  });
 });
