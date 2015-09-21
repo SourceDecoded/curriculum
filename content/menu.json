@@ -1,4 +1,4 @@
 [
-  {"title": "Welcome", "md":"welcome", "template":"contentPage"},
+  {"title": "Welcome", "md":"index", "template":"contentPage"},
   {"title": "Abstraction", "dir":"abstraction"}
 ]
