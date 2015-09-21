@@ -1,12 +1,3 @@
-# Abstraction: The Concrete
-
-A crucial part of your progress is your journey from the Concrete to the Abstract. For our purposes, “Concrete” deals with “things which actually exist” and “Abstract” describes ideas which wrap up a set of concrete things. With abstractions, we can think about systems with many pieces in terms of just a few, or make an idea reusable in multiple different situations. Concrete is also sometimes used to describe things that a person understands, and abstract to describe something incomprehensible, but this is a false definition in software.
-
-It should also be noted that “abstract” is used in Classical Inheritance to describe a Class which needs to be subclassed with additional detail. That’s not what we’re talking about here, but you will understand why “abstract” is a good descriptor of such a class when you get in to Object Oriented Programming.
-
-Before we can abstract anything, we need an understanding of what we’re abstracting away from. This is the lowest level of software, where the stuff we make interacts with the hardware of our computers. Starting down here, we’ll learn about how abstractions make it possible for our human brains to organize the billions of bits and soft logic that is our data and software.
-
-
 ## History
 It’s hard to nail down "the beginning" for our purposes. Computational machines have been around for a very long time. The first electrical computing machines used mechanical relays and switches to solve specific math problems. These were single-purpose computers used to calculate torpedo or bomb trajectories, or decrypt communications.
 

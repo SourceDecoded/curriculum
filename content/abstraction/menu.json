@@ -1,5 +1,5 @@
-{
-  "Welcome": "welcome.md",
-  "The Concrete": "concrete.md",
-  "Programs": "programs.md"
-}
+[
+  {"title": "Introduction", "md":"intro", "template":"contentPage"},
+  {"title": "The Concrete", "md":"concrete", "template":"contentPage"},
+  {"title": "Programs", "md":"programs", "template":"contentPage"}
+]

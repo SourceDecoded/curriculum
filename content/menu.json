@@ -1,1 +1,4 @@
-{"Abstraction": {"md":"abstraction", "template":"page"}}
+[
+  {"title": "Welcome", "md":"welcome", "template":"contentPage"},
+  {"title": "Abstraction", "dir":"abstraction"}
+]

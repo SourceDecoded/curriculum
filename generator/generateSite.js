@@ -1,56 +1,63 @@
 var markdown = require("markdown").markdown;
 var fs = require("fs");
+var rimraf = require("rimraf");
 
 var outputDirectory = "../generated";
 var inputDirectory = "../content";
+var templateDirectory = inputDirectory + "/templates";
 
 var menu = {};
 
-var convertMarkdown = function(mdContent) {
+var mdToTemplate = function(mdContent, menuItem) {
   var htmlContent = markdown.toHTML(mdContent);
+  var template = fs.readFileSync(templateDirectory + "/" + menuItem.template + ".html", "utf-8");
+  var output = "";
   // inject into template
-  return htmlContent;
+  output = template.replace("{{content}}", htmlContent);
+  output = output.replace("{{title}}", menuItem.title);
+  output = output.replace("{{menu}}", "Menu will go here");
+  return output;
 }
 
 var scanDir = function(directory){
-  if(directory === "templates") {
+  var menuFile = inputDirectory + "/" + directory + "/menu.json";
+  var fileExists = false;
+  try {
+    fs.statSync(menuFile)
+    fileExists = true;
+  } catch(e){
+    // smells like Java, doesn't it?
+  }
+  if (fileExists) {
+    try {
+      var menu = JSON.parse(fs.readFileSync(menuFile, "utf-8"));
+      menu.forEach(function(menuItem){
+        if (menuItem.hasOwnProperty("md")){
+          var filePath = inputDirectory + "/" + directory + "/" + menuItem.md + ".md";
+          var outputFilePath = outputDirectory + "/" + directory + "/" + menuItem.md + ".html";
+          var inputContent = fs.readFileSync(filePath, "utf-8");
+          var outputContent = mdToTemplate(inputContent, menuItem);
+          fs.writeFileSync(outputFilePath, outputContent);
+        }
+        else if (menuItem.hasOwnProperty("copy")) {
+          fs.writeFileSync(outputDirectory + "/" + directory + "/" + fs.readFileSync(fileInfo.path));
+        }
+        else if (menuItem.hasOwnProperty("dir")) {
+          fs.mkdirSync(outputDirectory + "/" + directory + "/" + menuItem.dir);
+          scanDir(directory + "/" + menuItem.dir);
+        }
+      });
+    } catch (e) {
+      console.log(e.stack);
+      console.error("Couldn't process directory: " + e.message);
+    }
+  } else {
+    console.info("menu.json not found in " + directory);
     return;
   }
-
-  var contents = fs.readdirSync(inputDirectory + "/" + directory).map(function(path){
-    var info = fs.statSync(path);
-    info.path = directory + "/" + path;
-  });
-
-  if (fs.fileexistsSync(directory + "/menu.json")) {
-    // add this menu stuff to the master menu object
-  }
-
-  contents.forEach(function(fileInfo){
-    if (fileInfo.isDirectory()) {
-      scanDir(fileInfo.path);
-    } else if(fileInfo.path.substr(-2) === "md") {
-      var outputFilePath = outputDirectory + "/" + fileInfo.path.substring(0, fileInfo.path.substring.length - 2) + "html";
-      var inputContent = fs.readFileSync(fileInfo.path, "utf-8");
-      var outputContent = convertMarkdown(inputContent);
-      fs.writeFileSync(outputFilePath, outputContent);
-    } else if(fileInfo.path.substr(-4) === "html") {
-      fs.writeFileSync(outputDirectory + "/" + fileInfo.path, fs.readFileSync(fileInfo.path));
-    }
-  });
 };
 
-var outputStat = fs.statSync(outputDirectory);
-
-if(! outputStat.isDirectory()) {
-  if (outputStat.isFile()) {
-    throw(new Error("Cannot write output directory: there's a file in the way at " + outputDirectory));
-  }
-  try {
-    fs.mkdirSync(outputDirectory);
-  } catch (e) {
-    throw new Error("Cannot write output directory: " + e.message);
-  }
-}
-
-scanDir(inputDirectory);
+rimraf(outputDirectory, function(){
+  fs.mkdirSync(outputDirectory);
+  scanDir("");
+});
