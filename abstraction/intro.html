@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/curriculum/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/curriculum/stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/curriculum/stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Curriculum by SourceDecoded | Introduction</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Curriculum</h1>
+        <h2>A method for training computer programmers and software engineers</h2>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>Abstraction</h1>
+
+<p>A crucial part of your progress is your journey from the Concrete to the Abstract. For our purposes, &quot;Concrete&quot; deals with &quot;things which actually exist&quot; and &quot;Abstract&quot; describes ideas which wrap up a set of concrete things. With abstractions, we can think about systems with many pieces in terms of just a few, or make an idea reusable in multiple different situations. Concrete is also sometimes used to describe things that a person understands, and abstract to describe something incomprehensible, but this is a false definition in software.</p>
+
+<h2>Layers</h2>
+
+<p>Everything is made out of something. This is true in the real world, as well as in the software world. Have you ever indulged a 7-year-old who keeps asking, &quot;why&quot;? Just as that line of questioning never really ends, neither do the ones consisting of, &quot;what is that made out of?&quot; or &quot;how does that work?&quot;.</p>
+
+<p>Think about a car. What&#39;s it made out of? A body, drivetrain, safety systems, etc. What&#39;s the drivetrain made out of? The engine, transmission, axles, and wheels. What&#39;s the transmission made out of? Gears and shafts bathed in oil. What are the gears made out of? Probably steel. What&#39;s steel made out of? Iron, carbon, and some other elements. What&#39;s iron made from? ..and so on...</p>
+
+<p>At every level of that chain is an idea which is used to make sense of the next idea up. When we talk about drivetrains, we usually talk about the transmission, not the gears in the transmission. The gears become important only when we&#39;re talking about the transmission itself.</p>
+
+<p>Software (most of computer science, really) works the same way. What&#39;s an operating system made out of? What are those pieces made out of? And those? And those?</p>
+
+<p>Software works on so many different levels because we organized it that way. We organized it that way because we can only hold so much in our heads at once. It&#39;s probably possible to build a modern operating system without trying to build it in smaller pieces and put it together at the end, but not for any mortal human.</p>
+
+<p>So, what we do is break large problems in to collections of small ones, then solve those. Many times, writing software feels like that movie, Inception, where you have to go down three or four levels and work up from there. Finally solving your original problem feels like waking up from nested dreams.</p>
+
+<h2>Concrete</h2>
+
+<p>It was mentioned that &quot;concrete&quot; deals with things that actually exist. That&#39;s true, sort of.</p>
+
+<p>If you choose any layer and ask, &quot;What&#39;s real on this layer?&quot;, the answer will only be true for that layer. If you dig down a layer, anything that was real on the layer above is only a composition of pieces from the layer below. In other words, what looks real on this layer can always get broken down to smaller pieces. Since we only deal with a single layer at a time, we can get away with calling things &quot;concrete&quot; which really aren&#39;t. In the next chapter, we&#39;ll talk about the lowest levels of software and build reality from there.</p>
+
+<h2>Abstract</h2>
+
+<p>A transmission is an abstraction over gears, shafts, and oil. When you start building a transmission, the thing doesn&#39;t actually exist, except as an idea in your head. Only once it&#39;s built does it become a concrete piece on which more can be built.</p>
+
+<p>Abstraction in software works the same way - a state machine is an abstraction over conditionals which makes reasoning about them easier. A user interface is an abstraction over UI elements, composed in a particular way. A device driver is an abstraction over a collection of hardware I/O operations.</p>
+
+<p>We tend to move from concrete to abstract as we build things, because abstractions (generally should) make it easier for us to do our work. If you are an application developer, you don&#39;t really want to keep thinking about how to deal with text input every time your application calls for it. It&#39;s much nicer for you to to just have a text input element in your toolbox that you can drop in. If your application deals with person data a lot, you&#39;re probably going to collect a bunch of inputs into a &quot;person form&quot; which you can just drop in anywhere you deal with editing person data.</p>
+
+<p>There is a danger of going off the abstraction deep-end. There is an appropriate level of abstraction for any problem, surrounded on either side by inappropriate concreteness and abstraction. With experience, and using tools we&#39;ll present in this guide, you&#39;ll be able to identify all three levels.</p>
+
+<h2>Composition</h2>
+
+<p>Using the concrete pieces given (on any layer), we build new things. There are no houses growing in the forest, but we can take the trees and turn them into houses. As programmers, our job is to take an idea and figure out how to build it from the available materials.</p>
+
+<p>In software, you&#39;ll probably specialize on a particular layer. If you&#39;re a user interface developer, you&#39;ll build application interfaces out of available user interface elements. If you write data services, you&#39;ll build them from pieces provided by the layer below you. Collecting concrete pieces into larger, abstract, pieces is called composition. Your job is to compose concrete elements to express abstract ideas, which them become the foundation for more pieces.</p>
+
+<p>The next chapter will establish the most concrete layers of software and build up from there, so you understand where your tools come from and get an idea of how one thing builds upon another.</p>
+        </section>
+
+        <aside id="sidebar">
+          Menu will go here
+          <p class="repo-owner"><a href="https://github.com/SourceDecoded/curriculum">Curriculum</a> is maintained by <a href="https://github.com/SourceDecoded">SourceDecoded</a>.</p>
+          <p>This page based on an autogenerated one by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-30864835-9");
+    pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+
+  </body>
+</html>
